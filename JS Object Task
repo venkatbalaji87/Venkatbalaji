@@ -1,0 +1,38 @@
+const list = [{
+        category: "Fruit",
+        name: "Apple",
+        priceBreaks: [5, 4.99, 4.80, 4.79],
+        aisle: "A-1"
+    },
+    {
+        category: "Vegetable",
+        name: "Tomato",
+        priceBreaks: [0.80],
+        aisle: "A-5"
+    },
+    {
+        category: "Fruit",
+        priceBreaks: [3.50, 3.30],
+        aisle: "A-3"
+    }
+];
+
+const result = list.map((item) => {
+
+	// The destructuring syntax is incorrect.
+	// Please fix it: - 
+	// 1. By Adding correct array destructuring syntax for extracting "secondPriceBreak"
+	// 2. By setting default values for the unknowns - name = "Unknown" and secondPriceBreak = 0
+    
+    let {
+        name= "Unknown", secondPriceBreak = (item.priceBreaks[1] === undefined) ? 0 : item.priceBreaks[1]
+    } = item;
+
+    return {
+        name,
+        secondPriceBreak
+    }
+})
+
+
+console.log(result)
